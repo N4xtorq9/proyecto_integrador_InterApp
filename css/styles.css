@@ -1,0 +1,71 @@
+:root{--primary:#233F83;--primary-dark:#1B326B;--accent:#FF4D00;--ink:#20243a;--muted:#6f7487;--surface:#fff;--bg:#f6f8fc;--line:#e5eaf3}*{box-sizing:border-box}body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}.navbar-brand,.brand{letter-spacing:-.5px}.btn-primary{background:var(--primary);border-color:var(--primary)}.btn-primary:hover{background:var(--primary-dark);border-color:var(--primary-dark)}a{color:var(--primary)}.landing{background:#fff}.hero{background:linear-gradient(120deg,#f0f2ff,#f9faff);min-height:440px;overflow:hidden}.eyebrow{font-size:.72rem;letter-spacing:1.5px;font-weight:800;color:var(--primary)}.hero-art{height:300px;position:relative;background:radial-gradient(circle at center,#dfe3ff 0 38%,transparent 39%)}.art-circle{position:absolute;inset:75px 0 auto;text-align:center;font-size:6rem;color:var(--primary);font-weight:800}.art-card{position:absolute;padding:14px 18px;border:0;border-radius:16px;box-shadow:0 12px 30px #20243a18;display:grid;gap:3px;font-size:1.5rem}.art-card b{font-size:.95rem}.art-card small{font-size:.72rem;color:var(--muted)}.card-one{top:20px;left:2%}.card-two{right:0;top:95px}.card-three{bottom:8px;left:25%}.feature-card,.stat-card,.product-card,.exchange-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;height:100%;box-shadow:0 4px 18px #20243a08}.feature-card span{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#eef0ff;color:var(--primary);font-weight:800;margin-bottom:12px}.auth-page{display:grid;place-items:center;padding:24px}.auth-card{background:white;border:1px solid var(--line);border-radius:20px;padding:36px;width:min(100%,440px);box-shadow:0 16px 50px #20243a10}.auth-card h1{font-size:1.8rem;margin-top:24px}.brand{font-size:1.3rem;font-weight:800;text-decoration:none}.form-control,.form-select{border-color:#dfe2ec;padding:.7rem .85rem}.form-control:focus,.form-select:focus{border-color:var(--primary);box-shadow:0 0 0 .2rem #5265d822}.form-error{color:#c62828;font-size:.88rem;min-height:1.2em}.demo-note{font-size:.78rem;color:#7d8292;background:#f5f6fa;border-radius:10px;padding:10px;margin-top:18px}.welcome-panel{background:linear-gradient(110deg,#fff,#f0f2ff);border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;justify-content:space-between;align-items:center;gap:20px}.stat-card{display:flex;flex-direction:column;gap:8px}.stat-card span{color:var(--muted);font-size:.9rem}.stat-card strong{font-size:2rem}.section-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:16px}.section-heading p{margin:0}.filter-bar{display:flex;gap:12px;margin:20px 0}.filter-bar input{max-width:520px}.filter-bar select{max-width:230px}.product-card{padding:0;overflow:hidden}.product-image-wrap{height:190px;background:#f0f1f7;display:grid;place-items:center}.product-image{width:100%;height:100%;object-fit:cover}.image-placeholder{font-size:3rem}.product-content{padding:18px}.status-badge{display:inline-flex;align-items:center;border-radius:100px;padding:5px 10px;font-size:.75rem;font-weight:700}.status-available{color:#126334;background:#dcfce7}.status-pending{color:#1748a5;background:#dbeafe}.status-done{color:#a51f27;background:#fee2e2}.status-unknown{color:#555;background:#eee}.image-preview{width:100%;max-height:190px;object-fit:contain;border-radius:10px;background:#f4f5f9}.empty-state{padding:28px;text-align:center;border:1px dashed #cdd1df;border-radius:14px;color:var(--muted);background:#fff}.exchange-card{padding:20px}.count-pill{display:inline-block;background:#e9ebf8;border-radius:20px;padding:1px 8px;font-size:.75rem;margin-left:4px}.site-footer{text-align:center;color:var(--muted);padding:28px 12px;font-size:.85rem}.nav-pills .nav-link{color:var(--muted)}.nav-pills .nav-link.active{background:var(--primary)}@media(max-width:600px){.welcome-panel{align-items:flex-start;flex-direction:column}.filter-bar{flex-direction:column}.filter-bar input,.filter-bar select{max-width:none}.auth-card{padding:26px}.hero-art{height:240px}.art-card{padding:10px;font-size:1.2rem}}
+/* Identidad visual oficial InterApp */
+.brand-logo{display:block;width:142px;height:54px;object-fit:contain;object-position:left center}
+.brand-logo-landing{width:158px;height:62px}
+.navbar{background:#fff!important}
+.navbar .nav-link{color:var(--primary);font-weight:600}
+.navbar .nav-link:hover,.navbar .nav-link:focus{color:var(--accent)}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:#fff}
+.btn-primary:hover,.btn-primary:focus{background:var(--primary-dark);border-color:var(--primary-dark);color:#fff}
+a{color:var(--primary)}
+a:hover{color:var(--accent)}
+.eyebrow{color:var(--primary)}
+.feature-card span{background:#edf1fa;color:var(--primary)}
+.nav-pills .nav-link.active{background:var(--primary)}
+.hero{background:linear-gradient(120deg,#f1f4fb,#fff)}
+.art-circle{color:var(--primary)}
+.art-card b{color:var(--primary)}
+
+
+/* Banner principal entregado para InterApp */
+.landing-banner{position:relative;width:100%;margin:0 auto 1.5rem;overflow:hidden;border-radius:18px;background:#f5e1c8}
+.landing-banner-image{display:block;width:100%;height:auto;max-height:730px;object-fit:cover}
+.banner-action{position:absolute;right:3.5%;bottom:6%;display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:12px;background:#233F83;color:#fff;text-decoration:none;font-weight:700;box-shadow:0 8px 24px #152b5a30;transition:background .2s ease,color .2s ease}
+.banner-action:hover,.banner-action:focus{background:#FF4D00;color:#fff}
+.login-brand{display:flex;justify-content:center;align-items:center;width:100%;margin:0 auto 18px}
+.login-brand img{display:block;width:min(260px,82%);height:150px;object-fit:contain;object-position:center}
+.auth-card{text-align:left}
+.auth-card .login-brand{margin-bottom:12px}
+.product-card{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.product-image-wrap{height:205px;flex:0 0 205px;background:#f3f5fa;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.product-image{display:block;width:100%;height:100%;object-fit:contain;padding:10px}
+.product-content{padding:18px;display:flex;flex-direction:column;align-items:stretch;min-width:0}
+.product-status{margin-bottom:12px}
+.product-title{margin:0 0 7px;line-height:1.3;overflow-wrap:anywhere}
+.product-description{font-size:.9rem;color:var(--muted);margin:0 0 10px;overflow-wrap:anywhere}
+.product-category{font-size:.82rem;color:#7a8092}
+.product-actions{display:flex;align-items:center;gap:8px;margin-top:16px;flex-wrap:wrap}
+#logoutBtn:hover,#logoutBtn:focus{background:#FF4D00!important;border-color:#FF4D00!important;color:#fff!important}
+.btn-primary:hover,.btn-primary:focus{background:#FF4D00!important;border-color:#FF4D00!important;color:#fff!important}
+@media(max-width:600px){.banner-action{right:4%;bottom:4%;font-size:.78rem;padding:8px 12px}.landing-banner{border-radius:12px}.login-brand img{height:125px}}
+
+/* Logo centrado y de igual tamaño en login y registro */
+.auth-card .login-brand{display:flex;justify-content:center;align-items:center;width:100%;margin:0 auto 16px}
+.auth-card .login-brand img{width:min(270px,85%);height:150px;object-fit:contain;object-position:center}
+.auth-card h1{margin-top:10px}
+.exchange-card [data-delete-completed]{margin-top:8px}
+@media(max-width:600px){.auth-card .login-brand img{height:130px}}
+
+/* Carrusel reutilizable de banners para inicio y dashboard */
+.banner-carousel{position:relative;width:100%;overflow:hidden;border-radius:18px;background:#f5e1c8;isolation:isolate}
+.banner-carousel-track{position:relative;width:100%;aspect-ratio:1396/730;min-height:190px}
+.banner-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .65s ease}
+.banner-slide.is-active{opacity:1;visibility:visible}
+.banner-slide img{display:block;width:100%;height:100%;object-fit:cover}
+.banner-arrow{position:absolute;z-index:3;top:50%;transform:translateY(-50%);width:42px;height:52px;border:0;border-radius:10px;background:#233f83b8;color:#fff;font-size:2rem;line-height:1;display:grid;place-items:center;cursor:pointer}
+.banner-arrow:hover,.banner-arrow:focus{background:#FF4D00;color:#fff}
+.banner-prev{left:14px}.banner-next{right:14px}
+.banner-indicators{position:absolute;z-index:3;left:50%;bottom:14px;transform:translateX(-50%);display:flex;gap:8px}
+.banner-dot{width:10px;height:10px;padding:0;border:1px solid #fff;border-radius:50%;background:#ffffff80;cursor:pointer}
+.banner-dot.is-active{width:25px;border-radius:10px;background:#fff}
+.banner-fallback{height:100%;display:grid;place-items:center;padding:20px;color:var(--primary);font-weight:600;text-align:center}
+.dashboard-banner{margin-top:4px}
+.dashboard-banner .banner-carousel-track{aspect-ratio:1396/500;min-height:170px}
+@media(max-width:600px){
+ .banner-carousel{border-radius:12px}
+ .banner-carousel-track{aspect-ratio:4/3;min-height:160px}
+ .banner-arrow{width:32px;height:40px;font-size:1.6rem}
+ .banner-prev{left:7px}.banner-next{right:7px}
+ .banner-action{right:4%;bottom:12%;font-size:.75rem;padding:8px 11px}
+ .dashboard-banner .banner-carousel-track{aspect-ratio:4/3}
+}
