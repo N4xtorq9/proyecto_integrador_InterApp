@@ -1,12 +1,83 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mis productos | InterApp</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="../css/styles.css"></head><body><div id="appHeader"></div>
-<main class="container py-4"><div class="section-heading align-items-start"><div><span class="eyebrow">CATÁLOGO PERSONAL</span><h1 class="h2 mt-2">Mis productos</h1><p class="text-secondary">Publica y administra los artículos que quieres intercambiar.</p></div><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">＋ Ingresar producto</button></div>
-<div class="filter-bar"><input id="searchProducts" class="form-control" placeholder="Buscar por nombre o descripción" aria-label="Buscar productos"><select id="filterStatus" class="form-select" aria-label="Filtrar por estado"><option value="todos">Todos los estados</option><option value="disponible">Disponible</option><option value="pendiente">Pendiente</option><option value="realizado">Intercambio realizado</option></select></div>
-<div id="productsGrid" class="row g-3 mt-1"></div><div id="emptyProducts" class="empty-state d-none">Todavía no tienes productos publicados. ¡Ingresa el primero!</div></main>
-<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><form id="productForm"><div class="modal-header"><h2 class="modal-title fs-5" id="modalTitle">Ingresar producto</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div><div class="modal-body">
-<input type="hidden" id="productId"><label class="form-label" for="productName">Nombre *</label><input id="productName" class="form-control mb-3" maxlength="100" required>
-<label class="form-label" for="productDescription">Descripción *</label><textarea id="productDescription" class="form-control mb-3" maxlength="1000" rows="3" required></textarea>
-<label class="form-label" for="productCategory">Categoría *</label><select id="productCategory" class="form-select mb-3" required><option value="">Seleccionar</option><option>Tecnología</option><option>Hogar</option><option>Ropa y accesorios</option><option>Libros</option><option>Deportes</option><option>Otros</option></select>
-<label class="form-label" for="productImage">Imagen (JPG, PNG o WEBP; máximo 2 MB) *</label><input id="productImage" class="form-control" type="file" accept="image/jpeg,image/png,image/webp"><img id="imagePreview" class="image-preview d-none mt-3" alt="Vista previa de la imagen"><div class="form-text">En esta versión de demostración, las imágenes se guardan localmente en el navegador.</div><div id="productError" class="form-error mt-2" role="alert"></div>
-</div><div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button><button class="btn btn-primary" type="submit">Guardar producto</button></div></form></div></div></div>
-<div class="modal fade" id="exchangeModal" tabindex="-1" aria-labelledby="exchangeModalTitle" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><form id="exchangeForm"><div class="modal-header"><h2 class="modal-title fs-5" id="exchangeModalTitle">Proponer intercambio</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div><div class="modal-body"><p class="text-secondary small mb-3">Vas a ofrecer: <strong id="offeredProductName"></strong></p><input type="hidden" id="offeredProductId"><label class="form-label" for="wantedProductName">¿Qué producto te gustaría recibir? *</label><input id="wantedProductName" class="form-control mb-3" maxlength="100" placeholder="Ej. Bicicleta, celular, libros..." required><label class="form-label" for="exchangeNote">Mensaje (opcional)</label><textarea id="exchangeNote" class="form-control" maxlength="500" rows="3" placeholder="Cuéntale a la otra persona algo sobre tu propuesta."></textarea><div id="exchangeError" class="form-error mt-2" role="alert"></div><div class="form-text">En esta versión local se registra la propuesta en tu historial. Para enviarla a otro usuario se necesita conectar un backend.</div></div><div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button><button type="submit" class="btn btn-primary">Crear propuesta</button></div></form></div></div></div>
-<div id="appFooter"></div><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script type="module" src="../js/productos.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Iniciar sesión | InterApp</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body class="auth-page">
+    <a class="back-home" href="../index.html">← Volver al inicio</a>
+    <main class="auth-layout">
+      <section class="auth-aside">
+        <a class="brand brand-white" href="../index.html" aria-label="InterApp"
+          ><img
+            class="brand-logo brand-logo-white"
+            src="../assets/interapp-logo-blanco.png"
+            alt="InterApp Intercambio Fácil"
+        /></a>
+        <div>
+          <span class="eyebrow text-white-50">QUÉ BUENO TENERTE DE VUELTA</span>
+          <h1>Los mejores intercambios comienzan aquí.</h1>
+          <p>
+            Ingresa a tu cuenta y descubre nuevas oportunidades para compartir.
+          </p>
+        </div>
+        <div class="aside-decoration">♻️</div>
+      </section>
+      <section class="auth-content">
+        <div class="auth-form-wrap">
+          <a
+            class="auth-mobile-brand brand"
+            href="../index.html"
+            aria-label="InterApp"
+            ><img
+              class="brand-logo"
+              src="../assets/interapp-logo.png"
+              alt="InterApp Intercambio Fácil"
+          /></a>
+          <span class="eyebrow">BIENVENIDO/A</span>
+          <h2>Iniciar sesión</h2>
+          <p class="muted">Ingresa tus datos para continuar.</p>
+          <form id="loginForm" novalidate>
+            <div class="mb-3">
+              <label class="form-label" for="email">Correo electrónico</label
+              ><input
+                class="form-control form-control-lg"
+                id="email"
+                type="email"
+                placeholder="nombre@correo.com"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="password">Contraseña</label
+              ><input
+                class="form-control form-control-lg"
+                id="password"
+                type="password"
+                placeholder="Ingresa tu contraseña"
+                required
+              />
+            </div>
+            <button class="btn btn-primary btn-lg w-100 mt-2" type="submit">
+              Ingresar a mi cuenta
+            </button>
+          </form>
+          <p class="auth-switch">
+            ¿Aún no tienes cuenta? <a href="registro.html">Regístrate aquí</a>
+          </p>
+          <p class="demo-hint">
+            Demo: crea una cuenta desde «Regístrate aquí» para probar el inicio
+            de sesión.
+          </p>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="../js/auth.js"></script>
+  </body>
+</html>

@@ -1,51 +1,66 @@
-import { getUsers, saveUsers, setSession, uid } from "./storage.js";
-import redirectAlert from "./alert.js";
-const error = document.getElementById("formError");
-const register = document.getElementById("registerForm");
-const login = document.getElementById("loginForm");
-if (register)
-  register.addEventListener("submit", (e) => {
-    e.preventDefault();
-    error.textContent = "";
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim().toLowerCase();
-    const password = document.getElementById("password").value;
-    const confirm = document.getElementById("confirm").value;
-    if (!name || !email || password.length < 6) {
-      error.textContent =
-        "Revisa los campos obligatorios. La contraseña debe tener al menos 6 caracteres.";
+import { showSuccess, showError } from "./alert.js";
+
+let loginForm = document.getElementById("loginForm");
+let registerForm = document.getElementById("registerForm");
+
+if (loginForm) {
+  loginForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    let email = document.getElementById("email").value.trim().toLowerCase();
+    let password = document.getElementById("password").value;
+    let users = JSON.parse(localStorage.getItem("interapp_users") || "[]");
+    let user = users.find(function (item) {
+      return item.email === email && item.password === password;
+    });
+
+    if (!email || !password) {
+      await showError("Campos incompletos", "Ingresa tu correo y contraseña para continuar.");
       return;
     }
-    if (password !== confirm) {
-      error.textContent = "Las contraseñas no coinciden.";
-      return;
-    }
-    const users = getUsers();
-    if (users.some((u) => u.email === email)) {
-      error.textContent = "Ya existe una cuenta con ese correo.";
-      return;
-    }
-    // DEMO ONLY: contraseñas en texto plano no son apropiadas para producción.
-    const user = { id: uid(), name, email, password };
-    users.push(user);
-    saveUsers(users);
-    setSession({ userId: user.id });
-    location.href = "dashboard.html";
-  });
-if (login)
-  login.addEventListener("submit", (e) => {
-    e.preventDefault();
-    error.textContent = "";
-    const email = document.getElementById("email").value.trim().toLowerCase();
-    const password = document.getElementById("password").value;
-    const user = getUsers().find(
-      (u) => u.email === email && u.password === password,
-    );
+
     if (!user) {
-      error.textContent =
-        "Correo o contraseña incorrectos. Verifica tus datos o crea una cuenta.";
+      await showError("Credenciales incorrectas", "El correo o la contraseña no son correctos. Verifica tus datos e inténtalo nuevamente.");
       return;
     }
-    setSession({ userId: user.id });
-    location.href = "dashboard.html";
+
+    localStorage.setItem("interapp_current_user", JSON.stringify({
+      name: user.name,
+      email: user.email
+    }));
+    await showSuccess("¡Bienvenido/a a InterApp!", "Has iniciado sesión correctamente.");
+    window.location.href = "dashboard.html";
   });
+}
+
+if (registerForm) {
+  registerForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim().toLowerCase();
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+    let users = JSON.parse(localStorage.getItem("interapp_users") || "[]");
+
+    if (!name || !email || !password || !confirmPassword) {
+      await showError("Campos incompletos", "Completa todos los campos del formulario.");
+      return;
+    }
+    if (password.length < 6) {
+      await showError("Contraseña no válida", "La contraseña debe tener al menos 6 caracteres.");
+      return;
+    }
+    if (password !== confirmPassword) {
+      await showError("Las contraseñas no coinciden", "Verifica que ambas contraseñas sean iguales.");
+      return;
+    }
+    if (users.some(function (item) { return item.email === email; })) {
+      await showError("Correo registrado", "Ya existe una cuenta asociada a este correo.");
+      return;
+    }
+
+    users.push({ id: Date.now().toString(), name: name, email: email, password: password });
+    localStorage.setItem("interapp_users", JSON.stringify(users));
+    await showSuccess("¡Cuenta creada!", "Tu registro fue exitoso. Ahora puedes iniciar sesión.");
+    window.location.href = "login.html";
+  });
+}
